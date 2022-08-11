@@ -38,13 +38,16 @@ export class TtyServer {
   fromWorkerBuf: number[] = [];
   toWorkerBuf: number[] = [];
 
-  constructor(private slave: Slave) {
+  constructor(private slave: Slave, generate_flush = true) {
     slave.onWritable(() => {
       if (this.fromWorkerBuf.length >= 1) this.feedFromWorker();
     });
 
     slave.onReadable(() => {
-      this.toWorkerBuf.push(...slave.read(), -1);
+      this.toWorkerBuf.push(...slave.read());
+      if (generate_flush) {
+        this.toWorkerBuf.push(-1);
+      }
 
       switch (this.state) {
         case "poll":

@@ -5,6 +5,7 @@ module.exports = {
   entry: {
     index: "./out/index.js",
     workerTools: "./out/workerTools.js",
+    wasiWorkerTools: "./out/wasiWorkerTools.js",
   },
   devtool: "source-map",
   module: {

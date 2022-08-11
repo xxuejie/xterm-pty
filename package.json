@@ -16,7 +16,9 @@
     "index.d.ts",
     "index.js.map",
     "workerTools.js",
-    "workerTools.js.map"
+    "workerTools.js.map",
+    "wasiWorkerTools.js",
+    "wasiWorkerTools.js.map"
   ],
   "dependencies": {
     "xterm": "^4.16.0"
